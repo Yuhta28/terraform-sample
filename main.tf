@@ -30,8 +30,8 @@ resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
 }
 
 resource "aws_instance" "web" {
-  instance_type = "m1.small"
-  # Ubuntu 19.04 LTS AMI
-  ami   = "ami-09dac16017637391f"
+  instance_type = "t3.small"
+  # Amazon Linux2
+  ami   = "ami-0992fc94ca0f1415a"
   count = 1
 }
