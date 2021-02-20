@@ -13,13 +13,29 @@ terraform {
   }
 }
 
+# 一度作成したらコメントアウトしておく
+#resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
+#  name           = "terraform-state-lock-dynamo"
+#  hash_key       = "LockID"
+#  read_capacity  = 20
+#  write_capacity = 20
+#
+#  attribute {
+#    name = "LockID"
+#    type = "S"
+#  }
+#
+#  tags = {
+#    Name = "DynamoDB State Lock Table"
+#  }
+#}
 
 resource "aws_instance" "web" {
   instance_type = "t3.small"
   # Amazon Linux2
   ami   = "ami-0992fc94ca0f1415a"
-  count = 3
+  count = 1
   tags = {
-    Name = "EC2 instance terraform3"
+    Name = "EC2 instance terraform"
   }
 }
