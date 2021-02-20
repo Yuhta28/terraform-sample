@@ -33,8 +33,8 @@ resource "aws_instance" "web" {
   instance_type = "t3.small"
   # Amazon Linux2
   ami   = "ami-0992fc94ca0f1415a"
-  count = 2
+  count = 1
   tags = {
-    Name = "EC2 instance terraform1"
+    Name = "EC2 instance terraform"
   }
 }
