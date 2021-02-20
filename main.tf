@@ -4,14 +4,14 @@ provider "aws" {
   profile = "default"
 }
 
-#terraform {
-#  backend "s3" {
-#    key            = "terraform.tfstate"
-#    bucket         = "circleci-book-terraform-sample-yuta"
-#    region         = "ap-northeast-1"
-#    dynamodb_table = "terraform-state-lock-dynamo"
-#  }
-#}
+terraform {
+  backend "s3" {
+    key            = "terraform.tfstate"
+    bucket         = "circleci-book-terraform-sample-yuta"
+    region         = "ap-northeast-1"
+    dynamodb_table = "terraform-state-lock-dynamo"
+  }
+}
 
 resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
   name           = "terraform-state-lock-dynamo"
@@ -33,7 +33,7 @@ resource "aws_instance" "web" {
   instance_type = "t3.small"
   # Amazon Linux2
   ami   = "ami-0992fc94ca0f1415a"
-  count = 1
+  count = 2
   tags = {
     Name = "EC2 instance terraform1"
   }
